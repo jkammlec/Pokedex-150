@@ -1,3 +1,6 @@
+Proyecto que muestra los primeros 150 pokemon desplegados en una tabla, estos datos se traen de la api PokeApi. Contiene un buscador simple, que trae los 
+datos del pokemon que coincida con lo escrito. También se utiliza un paginador simple utilizando botones, ya que se muestran 4 pokemones por pantalla.
+
 # Pokedex150
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
