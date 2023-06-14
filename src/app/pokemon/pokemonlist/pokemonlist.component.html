@@ -1,0 +1,48 @@
+<div class="container bg-dark text-white">
+<h1 class="mt-5">Listado de Pokemon's de la Región de Kanto 
+    <img src="../../../assets/Kanto.png" alt="Mapa de Kanto" [ngStyle]="{'width':'50px', 'border-radius':'5px'}">
+</h1>
+
+<hr>
+
+<input type="text" 
+    class="form-control mb-2" 
+    placeholder="Buscar pokemon 🔍" 
+    #txtSearch
+    (keyup)="onSearchPokemon(txtSearch.value)"
+    />
+
+<table class="table table-dark table-sm border-danger">
+    <thead>
+        <tr>
+            <th [ngStyle]="{'width':'50px'}">Nro</th>
+            <th [ngStyle]="{'width':'150px'}">Nombre</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let poke of pokemons | filtro:page:search"
+        [ngStyle]="{'height':'100px'}">
+            <th class="align-middle text-capitalize">{{poke.id}} </th>
+            <th class="align-middle text-capitalize">{{poke.name}} </th>
+            <th> 
+                <img 
+                    [src]="poke.pic" 
+                    [alt]="poke.pic"
+                    [ngStyle]="{'width':'75px'}"
+                />
+            </th>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-danger mb-2" 
+        (click)="prevPage()">
+    Anteriores
+</button>
+&nbsp;
+<button class="btn btn-danger mb-2" 
+        (click)="nextPage()"
+        [disabled]="(pokemons | filtro:page:search).length === 0">
+    Siguientes
+</button>
+</div>
